@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 public class GBLinkedList<T> implements GBList, Iterable {
     private int size;
-    Node<T> first;
-    Node<T> last;
+    private Node<T> first;
+    private Node<T> last;
 
     public GBLinkedList() {
         this.size = 0;
