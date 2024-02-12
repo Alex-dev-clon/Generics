@@ -4,7 +4,7 @@ import list.core.GBList;
 
 import java.util.Iterator;
 
-public class GBLinkedList<T> implements GBList, Iterable {
+public class GBLinkedList<T> implements GBList <T>{
     private int size;
     private Node<T> first;
     private Node<T> last;
@@ -31,12 +31,12 @@ public class GBLinkedList<T> implements GBList, Iterable {
     Метод для добавления в конец списка
      */
     @Override
-    public void add(Object elem) {
+    public void add(T elem) {
         if (size == 0) {
-            first = new Node<>(null, (T) elem, null);
+            first = new Node<>(null, elem, null);
             last = first;
         } else {
-            last.next = new Node<>(last, (T) elem, null);
+            last.next = new Node<>(last, elem, null);
             last = last.next;
         }
         size++;
@@ -45,12 +45,12 @@ public class GBLinkedList<T> implements GBList, Iterable {
     /*
     Метод для добавления в начало списка
      */
-    public void addFirst(Object elem) {
+    public void addFirst(T elem) {
         if (size == 0) {
-            first = new Node<>(null, (T) elem, null);
+            first = new Node<>(null, elem, null);
             last = first;
         } else {
-            first.prev = new Node<>(null, (T) elem, first);
+            first.prev = new Node<>(null, elem, first);
             first = first.prev;
         }
         size++;
@@ -73,7 +73,7 @@ public class GBLinkedList<T> implements GBList, Iterable {
     Метод для получения элемента
      */
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         Node<T> temp = first;
         for (int i = 0; i < index; i++) {
             temp = temp.next;
@@ -102,8 +102,8 @@ public class GBLinkedList<T> implements GBList, Iterable {
             }
 
             @Override
-            public Object next() {
-                Object mark = temp.elem;
+            public T next() {
+                T mark = temp.elem;
                 temp = temp.next;
                 return mark;
             }

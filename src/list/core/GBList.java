@@ -1,6 +1,6 @@
 package list.core;
 
-public interface GBList<T> extends Iterable<T> {
+public interface GBList <T> extends Iterable <T> {
     void add(T elem);
 
     void remove(int index);
